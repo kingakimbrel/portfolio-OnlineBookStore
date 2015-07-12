@@ -2,7 +2,7 @@
 
 Summary:
 
-OnlineBookStore is a sample application developed in .Net technology such as C# language, MVC 5, WCF, MS SqlServer. I used nHibernate as an ORM tool and Automapper for mapping purposes between layers. Scripts to create sample database are placed in OnlineBookStore.sql file.
+OnlineBookStore is a sample application developed in .Net technologies such as C# language, MVC 5, WCF, MS SqlServer. I used nHibernate as an ORM tool and Automapper for mapping purposes between layers. Scripts to create sample database are placed in OnlineBookStore.sql file.
 
 Info:
 
