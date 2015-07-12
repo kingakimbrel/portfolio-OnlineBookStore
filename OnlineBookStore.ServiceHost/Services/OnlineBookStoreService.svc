@@ -1,0 +1,4 @@
+﻿<%@ ServiceHost Language="C#" 
+    Debug="true" 
+    Service="OnlineBookStore.Services.Services.OnlineBookStoreService" 
+    Factory="Ninject.Extensions.Wcf.NinjectServiceHostFactory" %>

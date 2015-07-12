@@ -1,0 +1,58 @@
+﻿@using OnlineBookStore.UI.Const
+@model IEnumerable<OnlineBookStore.UI.Models.OrderModel>
+
+@{
+    ViewBag.Title = "Orders";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<h1>Orders</h1>
+
+<table class="Grid">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDetails.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDetails.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ShippingDetails.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrderDate)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Id)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ShippingDetails.FirstName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ShippingDetails.LastName)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.ShippingDetails.City)
+        </td>
+        <td>
+            @Html.DisplayFor(model => item.OrderDate.Value)
+        </td>
+        <td>
+             @using (Html.BeginForm(eAction.Details, eController.Admin))
+             {
+                    @Html.Hidden("orderId", item.Id)
+                    <input class="actionButtons" type="submit" value="Details" />
+             }
+        </td>
+    </tr>
+}
+
+</table>

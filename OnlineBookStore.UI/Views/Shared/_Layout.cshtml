@@ -1,0 +1,22 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+</head>
+<body>
+    <div id="header">
+    @{Html.RenderAction(OnlineBookStore.UI.Const.eAction.CartSummary, OnlineBookStore.UI.Const.eController.Cart);}
+        <div class="title">
+            BOOK STORE</div>
+    </div>
+    <div id="categories">
+        @{Html.RenderAction(OnlineBookStore.UI.Const.eAction.Menu, OnlineBookStore.UI.Const.eController.Nav); }
+    </div>
+    <div id="content">
+        @RenderBody()
+    </div>
+</body>
+</html>

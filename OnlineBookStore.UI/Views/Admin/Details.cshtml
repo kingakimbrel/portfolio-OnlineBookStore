@@ -1,0 +1,93 @@
+﻿@using OnlineBookStore.UI.Const
+@model IEnumerable<OnlineBookStore.UI.Models.OrderModel>
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>Order Details</h1>
+<h2>Customer:
+</h2>
+<h4>@Model.FirstOrDefault().ShippingDetails.FirstName @Model.FirstOrDefault().ShippingDetails.LastName,<br />
+
+    @Model.FirstOrDefault().ShippingDetails.Line1<br />
+
+    @if (Model.FirstOrDefault().ShippingDetails.Line2 != null)
+    { @Model.FirstOrDefault().ShippingDetails.Line2<br />}
+
+    @if (Model.FirstOrDefault().ShippingDetails.Line3 != null)
+    {@Model.FirstOrDefault().ShippingDetails.Line3<br />}
+
+    @Model.FirstOrDefault().ShippingDetails.Zip @Model.FirstOrDefault().ShippingDetails.City<br />
+    @Model.FirstOrDefault().ShippingDetails.Country</h4>
+
+<table class="Grid">
+    <tr>
+        <th>ID
+        </th>
+        <th>Book
+        </th>
+        <th>Category
+        </th>
+        <th>Quantity
+        </th>
+        <th class="NumericCol">Price per item
+        </th>
+        <th class="NumericCol">Subtotal
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var order in Model)
+    {  
+        int i = 0;
+        foreach (var item in order.OrderItems)
+        {
+            i++;
+<tr>
+            <td>
+                @i
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Book.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Book.Category.Value)
+            </td>
+            <td>
+                @Html.DisplayFor(model => item.Amount)
+            </td>
+            <td class="NumericCol">
+                @Html.DisplayFor(model => item.Book.Price)
+            </td>
+            <td class="NumericCol">
+                @((item.Book.Price * item.Amount).ToString("c"))
+        </td>
+            <td></td>
+        </tr>
+        }
+        <tr>
+            <td colspan="5" align="right">
+                <b>Total:</b>
+            </td>
+            <td align="right" class="NumericCol">
+                <b>@(order.ComputeTotalValue().ToString("c"))</b>
+            </td>
+        </tr>
+        <tr class="blank_row">
+            <td colspan="7"></td>
+        </tr>
+  }
+</table>
+
+
+<p>
+    <input onclick="onReturn();" class="actionButtons" type="button" value="Cancel" />
+</p>
+
+<script type="text/javascript">
+
+    function onReturn() {
+        var redirectUrl = '@Url.Action(eAction.Orders, eController.Admin)';
+        window.location.href = redirectUrl;
+    }
+
+</script>

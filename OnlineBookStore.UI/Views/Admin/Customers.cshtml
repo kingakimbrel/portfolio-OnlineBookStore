@@ -1,0 +1,93 @@
+﻿@using OnlineBookStore.UI.Const
+@model IEnumerable<OnlineBookStore.UI.Models.ShippingDetailsModel>
+@{
+    ViewBag.Title = "Customers";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>
+    Customers</h1>
+<table class="Grid">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line2)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Line3)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.City)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Zip)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Country)
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+        <th>
+        </th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Line1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Line2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Line3)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Zip)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+
+                @using (Html.BeginForm(eAction.EditCustomer, eController.Admin, FormMethod.Get))
+                {
+                    @Html.Hidden("shippingDetailsId", item.Id)
+                    <input class="actionButtons" type="submit" value="Edit" />
+                }
+            </td>
+            <td>
+                @using (Html.BeginForm(eAction.DeleteCustomer, eController.Admin))
+                {
+                    @Html.Hidden("shippingDetailsId", item.Id)
+                    <input class="actionButtons" type="submit" value="Delete" />
+                }
+            </td>
+            <td>
+                @using (Html.BeginForm(eAction.Details, eController.Admin))
+                {
+                    @Html.Hidden("customerId", item.Id)
+                    <input class="actionButtons" type="submit" value="Orders" />
+                }
+            </td>
+        </tr>
+    }
+</table>

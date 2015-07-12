@@ -1,0 +1,9 @@
+﻿@using OnlineBookStore.UI.Const
+@model OnlineBookStore.UI.Models.Cart
+<div id="cart">
+    <span class="caption"><b>Your cart:</b> @Model.Lines.Sum(m => m.Quantity) book(s),
+        @Model.ComputeTotalValue().ToString("c")
+    </span>
+    @Html.ActionLink("Checkout", eAction.Index, eController.Cart,
+new { returnUrl = Request.Url.PathAndQuery }, null)
+</div>

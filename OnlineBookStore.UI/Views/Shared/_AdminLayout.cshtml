@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Site.css" type="text/css" rel="stylesheet" />
+    <link href="~/Content/Admin.css" rel="stylesheet" type="text/css" />
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+<div id="header">
+        <div class="title">
+           BOOK STORE: ADMIN PANEL</div>
+    </div>
+    <div id="categories">
+        @{Html.RenderAction(OnlineBookStore.UI.Const.eAction.NavBar, OnlineBookStore.UI.Const.eController.Admin); }
+    </div>
+    <div id="content">
+        @if (TempData["message"] != null)
+        {
+            <div class="Message">@TempData["message"]</div>
+        }
+        @RenderBody()
+    </div>
+</body>
+</html>

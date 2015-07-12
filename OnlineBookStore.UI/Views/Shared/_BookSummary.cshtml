@@ -1,0 +1,17 @@
+﻿@using OnlineBookStore.UI.Const
+@model OnlineBookStore.UI.Models.BookModel
+<div class="item">
+      <div class="item">
+        @using (@Html.BeginForm(eAction.AddToCart, eController.Cart))
+        {
+            @Html.HiddenFor(m => m.Id)
+            @Html.Hidden(eParameters.ReturnUrl, Request.Url.PathAndQuery)
+            <input type="submit" value="+ Add to cart" />
+        }
+    </div>
+    <h3>@Model.Title</h3>
+    <h4>@Model.Author.First @Model.Author.Last</h4>
+    @Model.Description
+    <h4>@Model.Price.ToString("c")</h4>
+
+</div>

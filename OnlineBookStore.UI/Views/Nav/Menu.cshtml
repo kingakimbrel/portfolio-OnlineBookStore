@@ -1,0 +1,19 @@
+﻿@using OnlineBookStore.UI.Const
+@model IEnumerable<OnlineBookStore.UI.Models.CategoryModel>
+
+@Html.ActionLink("Home", eAction.List, eController.Book)
+@foreach (OnlineBookStore.UI.Models.CategoryModel cat in Model)
+{ 
+    @Html.RouteLink(cat.Value,
+    new
+    {
+        controller = eController.Book,
+        action = eAction.List,
+        category = cat.Id,
+        page = 1
+    }, 
+    new
+    {
+        @class = cat.Id == ViewBag.CurrentCategory ? "selected" : null
+    })
+}

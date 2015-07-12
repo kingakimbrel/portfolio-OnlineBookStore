@@ -1,0 +1,20 @@
+﻿@using OnlineBookStore.UI.Exstensions
+@model OnlineBookStore.UI.ViewModels.ErrorViewModel
+@{
+    ViewBag.Title = Model.ErrorType;
+    Layout = null;
+}
+
+<h4>
+    @Model.ErrorDescription</h4>
+
+<p>
+    <b>@Model.Exception.Message </b>
+</p>
+
+<p>
+    Wróć na <a href="@Url.Home()">stronę główną</a>.</p>
+
+<p>
+    Jeżeli błąd będzie się powtarzał skontaktuj się z administratorem lub <a href="mailto:@Model.SupportEmailAddress?Subject=@Model.MessageSubject&body=@Model.MessageBody">wyślij raport o błędzie</a>.
+</p>

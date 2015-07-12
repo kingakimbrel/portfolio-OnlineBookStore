@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FD435342-2058-44A8-98CE-10684005C451}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>OnlineBookStore.CustomProxy</RootNamespace>
+    <AssemblyName>OnlineBookStore.CustomProxy</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataTransferObject\AuthorVO.cs" />
+    <Compile Include="DataTransferObject\AuthorWithBooksVO.cs" />
+    <Compile Include="DataTransferObject\BookVO.cs" />
+    <Compile Include="DataTransferObject\Dictionaries\CategoryVO.cs" />
+    <Compile Include="DataTransferObject\Dictionaries\DictionaryVO.cs" />
+    <Compile Include="DataTransferObject\OrderItemVO.cs" />
+    <Compile Include="DataTransferObject\OrderVO.cs" />
+    <Compile Include="DataTransferObject\ShippingDetailsVO.cs" />
+    <Compile Include="DataTransferObject\ShippingDetailsWithOrdersVO.cs" />
+    <Compile Include="IServices\GetOrdersByShippingDetailsId\GetOrdersByShippingDetailsIdRequest.cs" />
+    <Compile Include="IServices\GetOrdersByShippingDetailsId\GetOrdersByShippingDetailsIdResponse.cs" />
+    <Compile Include="IServices\GetOrderById\GetOrderByIdRequest.cs" />
+    <Compile Include="IServices\GetOrderById\GetOrderByIdResponse.cs" />
+    <Compile Include="IServices\DeleteOrder\DeleteOrderRequest.cs" />
+    <Compile Include="IServices\DeleteOrder\DeleteOrderResponse.cs" />
+    <Compile Include="IServices\DeleteBook\DeleteBookRequest.cs" />
+    <Compile Include="IServices\DeleteBook\DeleteBookResponse.cs" />
+    <Compile Include="IServices\DeleteShippingDetails\DeleteShippingDetailsResponse.cs" />
+    <Compile Include="IServices\DeleteShippingDetails\DeleteShippingDetailsRequest.cs" />
+    <Compile Include="IServices\GetAllCustomers\GetAllCustomersResponse.cs" />
+    <Compile Include="IServices\GetAllOrders\GetAllOrdersResponse.cs" />
+    <Compile Include="IServices\GetDictionary\GetDictionaryResponse.cs" />
+    <Compile Include="IServices\GetShippingDetailsById\GetShippingDetailsByIdResponse.cs" />
+    <Compile Include="IServices\GetShippingDetailsById\GetShippingDetailsByIdRequest.cs" />
+    <Compile Include="IServices\SaveBook\SaveBookRequest.cs" />
+    <Compile Include="IServices\SaveBook\SaveBookResponse.cs" />
+    <Compile Include="IServices\BaseRequest.cs" />
+    <Compile Include="IServices\BaseResponse.cs" />
+    <Compile Include="IServices\GetAllBooks\GetAllBooksResponse.cs" />
+    <Compile Include="IServices\GetBookById\GetBookByIdRequest.cs" />
+    <Compile Include="IServices\GetBookById\GetBookByIdResponse.cs" />
+    <Compile Include="IServices\GetBooksForPage\GetBooksForPageRequest.cs" />
+    <Compile Include="IServices\GetBooksForPage\GetBooksForPageResponse.cs" />
+    <Compile Include="IServices\GetBooksFromCategory\GetBooksFromCategoryRequest.cs" />
+    <Compile Include="IServices\GetBooksFromCategory\GetBooksFromCategoryResponse.cs" />
+    <Compile Include="IServices\IOnlineBookStoreService.cs" />
+    <Compile Include="IServices\SaveOrder\SaveOrderRequest.cs" />
+    <Compile Include="IServices\SaveShippingDetails\SaveShippingDetailsRequest.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\OnlineBookStore.Common\OnlineBookStore.Common.csproj">
+      <Project>{61aaf1bb-15c0-4645-b48b-d058c1cf366a}</Project>
+      <Name>OnlineBookStore.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\OnlineBookStore.DAL\OnlineBookStore.DAL.csproj">
+      <Project>{ed97c0df-088a-41fc-9d1e-4815d04445ac}</Project>
+      <Name>OnlineBookStore.DAL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

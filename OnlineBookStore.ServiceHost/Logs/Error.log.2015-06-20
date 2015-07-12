@@ -1,0 +1,17 @@
+2015-06-20 14:03:31,078 ERROR NHibernate.Transaction.ITransactionFactory:
+      DTC transaction prepare phase failed
+NHibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing or set cascade action for the property to something that would make it autosave. Type: OnlineBookStore.DAL.Dictionaries.CategoryDictionary, Entity: OnlineBookStore.DAL.Dictionaries.CategoryDictionary
+   w NHibernate.Engine.ForeignKeys.GetEntityIdentifierIfNotUnsaved(String entityName, Object entity, ISessionImplementor session)
+   w NHibernate.Type.EntityType.GetIdentifier(Object value, ISessionImplementor session)
+   w NHibernate.Type.ManyToOneType.IsDirty(Object old, Object current, Boolean[] checkable, ISessionImplementor session)
+   w NHibernate.Type.TypeHelper.Dirty(StandardProperty[] properties, Object[] currentState, Object[] previousState, Boolean[][] includeColumns, Boolean anyUninitializedProperties, ISessionImplementor session, Int32 i)
+   w NHibernate.Type.TypeHelper.FindDirty(StandardProperty[] properties, Object[] currentState, Object[] previousState, Boolean[][] includeColumns, Boolean anyUninitializedProperties, ISessionImplementor session)
+   w NHibernate.Persister.Entity.AbstractEntityPersister.FindDirty(Object[] currentState, Object[] previousState, Object entity, ISessionImplementor session)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.DirtyCheck(FlushEntityEvent event)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.IsUpdateNecessary(FlushEntityEvent event, Boolean mightBeDirty)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.OnFlushEntity(FlushEntityEvent event)
+   w NHibernate.Event.Default.AbstractFlushingEventListener.FlushEntities(FlushEvent event)
+   w NHibernate.Event.Default.AbstractFlushingEventListener.FlushEverythingToExecutions(FlushEvent event)
+   w NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   w NHibernate.Impl.SessionImpl.Flush()
+   w NHibernate.Transaction.AdoNetWithDistributedTransactionFactory.DistributedTransactionContext.System.Transactions.IEnlistmentNotification.Prepare(PreparingEnlistment preparingEnlistment)

@@ -1,0 +1,15 @@
+﻿@using OnlineBookStore.UI.Const
+@model string[] 
+
+@foreach (var link in Model) {
+    
+    @Html.RouteLink(link, new {
+        controller = eController.Admin,
+        action = eAction.Menu,
+        category = link
+},
+    new
+    {
+        @class = link == ViewBag.SelectedCategory ? "selected" : null
+    })
+}

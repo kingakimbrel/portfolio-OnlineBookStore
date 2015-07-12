@@ -1,0 +1,18 @@
+2015-07-05 19:37:46,640 ERROR OnlineBookStoreLogger:
+      Metoda lub operacja nie jest zaimplementowana.
+System.NotImplementedException: Metoda lub operacja nie jest zaimplementowana.
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.GetOrderById(GetOrderByIdRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 166
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-05 19:37:46,640 ERROR OnlineBookStoreLogger:
+      Metoda lub operacja nie jest zaimplementowana.
+System.NotImplementedException: Metoda lub operacja nie jest zaimplementowana.
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.GetOrderById(GetOrderByIdRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 166
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47

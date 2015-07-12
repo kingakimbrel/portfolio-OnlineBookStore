@@ -1,0 +1,119 @@
+2015-07-12 15:54:16,243 ERROR NHibernate.Transaction.ITransactionFactory:
+      DTC transaction prepare phase failed
+NHibernate.TransientObjectException: object references an unsaved transient instance - save the transient instance before flushing or set cascade action for the property to something that would make it autosave. Type: OnlineBookStore.DAL.Entities.ShippingDetails, Entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.ForeignKeys.GetEntityIdentifierIfNotUnsaved(String entityName, Object entity, ISessionImplementor session)
+   w NHibernate.Type.EntityType.GetIdentifier(Object value, ISessionImplementor session)
+   w NHibernate.Type.ManyToOneType.IsDirty(Object old, Object current, Boolean[] checkable, ISessionImplementor session)
+   w NHibernate.Type.TypeHelper.Dirty(StandardProperty[] properties, Object[] currentState, Object[] previousState, Boolean[][] includeColumns, Boolean anyUninitializedProperties, ISessionImplementor session, Int32 i)
+   w NHibernate.Type.TypeHelper.FindDirty(StandardProperty[] properties, Object[] currentState, Object[] previousState, Boolean[][] includeColumns, Boolean anyUninitializedProperties, ISessionImplementor session)
+   w NHibernate.Persister.Entity.AbstractEntityPersister.FindDirty(Object[] currentState, Object[] previousState, Object entity, ISessionImplementor session)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.DirtyCheck(FlushEntityEvent event)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.IsUpdateNecessary(FlushEntityEvent event, Boolean mightBeDirty)
+   w NHibernate.Event.Default.DefaultFlushEntityEventListener.OnFlushEntity(FlushEntityEvent event)
+   w NHibernate.Event.Default.AbstractFlushingEventListener.FlushEntities(FlushEvent event)
+   w NHibernate.Event.Default.AbstractFlushingEventListener.FlushEverythingToExecutions(FlushEvent event)
+   w NHibernate.Event.Default.DefaultFlushEventListener.OnFlush(FlushEvent event)
+   w NHibernate.Impl.SessionImpl.Flush()
+   w NHibernate.Transaction.AdoNetWithDistributedTransactionFactory.DistributedTransactionContext.System.Transactions.IEnlistmentNotification.Prepare(PreparingEnlistment preparingEnlistment)
+2015-07-12 16:04:10,689 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 195
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-12 16:04:10,689 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 195
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-12 16:06:40,737 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 196
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-12 16:06:40,737 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 5, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 196
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-12 16:10:27,439 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 3, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 3, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 196
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47
+2015-07-12 16:10:27,439 ERROR OnlineBookStoreLogger:
+      a different object with the same identifier value was already associated with the session: 3, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+NHibernate.NonUniqueObjectException: a different object with the same identifier value was already associated with the session: 3, of entity: OnlineBookStore.DAL.Entities.ShippingDetails
+   w NHibernate.Engine.StatefulPersistenceContext.CheckUniqueness(EntityKey key, Object obj)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformUpdate(SaveOrUpdateEvent event, Object entity, IEntityPersister persister)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.EntityIsDetached(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.PerformSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Event.Default.DefaultSaveOrUpdateEventListener.OnSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.FireSaveOrUpdate(SaveOrUpdateEvent event)
+   w NHibernate.Impl.SessionImpl.SaveOrUpdate(Object obj)
+   w OnlineBookStore.DAL.Repository.Logic.Repository.SaveOrUpdate(Object obj) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.DAL\Repository\Logic\Repository.cs:wiersz 34
+   w OnlineBookStore.Services.Services.OnlineBookStoreService.SaveShippingDetails(SaveShippingDetailsRequest request) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.Services\Services\OnlineBookStoreService.cs:wiersz 196
+   w (Object , Object[] )
+   w Ninject.Extensions.Interception.Injection.Dynamic.DynamicMethodInjector.Invoke(Object target, Object[] arguments)
+   w Ninject.Extensions.Interception.Invocation.Invocation.CallTargetMethod()
+   w Ninject.Extensions.Interception.Invocation.InvocationBase.Proceed()
+   w OnlineBookStore.ServiceHost.Infrastructure.ServiceInterceptor.Intercept(IInvocation invocation) w c:\Projects\Workspace\OnlineBookStore\OnlineBookStore.ServiceHost\Infrastructure\ServiceInterceptor.cs:wiersz 47

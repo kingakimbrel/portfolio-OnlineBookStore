@@ -1,0 +1,16 @@
+﻿@model OnlineBookStore.UI.ViewModels.LoginViewModel
+@{
+    ViewBag.Title = "Admin: Logging";
+    Layout = "~/Views/Shared/_LoginLayout.cshtml"; ;
+}
+<h1>
+    Logging</h1>
+<p>
+    To access Admin Panel - log in:</p>
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    @Html.EditorForModel()
+    <p>
+        <input type="submit" value="Log in" /></p>
+}

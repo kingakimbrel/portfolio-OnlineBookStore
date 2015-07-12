@@ -1,0 +1,3 @@
+2015-06-19 23:11:10,936 ERROR NHibernate.Cfg.Configuration:
+      An association from the table BOOKS refers to an unmapped class: OnlineBookStore.DAL.Entities.Author
+NHibernate.MappingException: An association from the table BOOKS refers to an unmapped class: OnlineBookStore.DAL.Entities.Author

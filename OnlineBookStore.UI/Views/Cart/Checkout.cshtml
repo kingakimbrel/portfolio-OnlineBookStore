@@ -1,0 +1,62 @@
+﻿@model OnlineBookStore.UI.Models.ShippingDetailsModel
+@{
+    ViewBag.Title = "Checkout";
+}
+<h2>
+    Check out now</h2>
+Give us shipping details:
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    <table width="30%">
+            <tbody>
+                <tr>
+                    <td>
+                        <h3>Ship to:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>First: </td>
+                    <td>@Html.EditorFor(x => x.FirstName)</td>
+                </tr>
+                <tr>
+                    <td>Last: </td>
+                    <td>@Html.EditorFor(x => x.LastName)</td>
+                </tr>
+                <tr>
+                    <td>
+                        <h3>Address:</h3>
+                    </td>
+                </tr>
+                <tr>
+                    <td>Line 1: </td>
+                    <td>@Html.EditorFor(x => x.Line1)</td>
+                </tr>
+                <tr>
+                    <td>Line 2:</td>
+                    <td>@Html.EditorFor(x => x.Line2)</td>
+                </tr>
+                <tr>
+                    <td>Line 3:</td>
+                    <td>@Html.EditorFor(x => x.Line3)</td>
+                </tr>
+                <tr>
+                    <td>City: </td>
+                    <td>@Html.EditorFor(x => x.City)</td>
+                </tr>
+                <tr>
+                    <td>Zip code: </td>
+                    <td>@Html.EditorFor(x => x.Zip)</td>
+                </tr>
+                <tr>
+                    <td>Country: </td>
+                    <td>@Html.EditorFor(x => x.Country)</td>
+                </tr>
+                <tr>
+                    <td align="center">
+                        <input class="actionButtons" type="submit" value="Place order" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+}

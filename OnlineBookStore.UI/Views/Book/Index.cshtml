@@ -1,0 +1,11 @@
+﻿@using OnlineBookStore.UI.Const
+@model OnlineBookStore.UI.ViewModels.BookListViewModel
+
+@{
+    ViewBag.Title = "Book Store";
+}
+
+@foreach (var book in Model.Books)
+{
+    Html.RenderPartial(eView._BookSummary, book);
+}

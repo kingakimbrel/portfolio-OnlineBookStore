@@ -1,0 +1,52 @@
+﻿@using OnlineBookStore.UI.Const
+@model OnlineBookStore.UI.Models.BookModel
+@{
+    ViewBag.Title = "Admin: Edit " + @Model.Title;
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+<h1>
+    Edit: @Model.Title</h1>
+@using (Html.BeginForm(eAction.Edit, eController.Admin, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    
+    @Html.ValidationSummary()
+    @Html.HiddenFor(x=>x.Id)
+    <table width="30%">
+            <tbody>
+                <tr>
+                    <td>Title: </td>
+                    <td>@Html.EditorFor(x => x.Title)</td>
+                </tr>
+                <tr>
+                    <td>Category:  </td>
+                    <td>@Html.DropDownListFor(x=>x.Category.Id, ViewData["Categories"] as List<SelectListItem>)</td>
+                </tr>
+                <tr>
+                    <td>Author: </td>
+                    <td>@Html.DropDownListFor(x=>x.Author.Id, ViewData["Authors"] as List<SelectListItem>)</td>
+                </tr>
+                <tr>
+                    <td>Description: </td>
+                    <td>@Html.TextAreaFor(x => x.Description)</td>
+                </tr>
+                <tr>
+                    <td>Price: </td>
+                    <td>@Html.EditorFor(x => x.Price)</td>
+                </tr>
+                <tr>
+                    <td><input class="actionButtons" type="submit" value="Save" /></td>
+                    <td>
+                        <input onclick="onReturn();" class="actionButtons" type="button" value="Cancel" />
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+}
+   <script type="text/javascript">
+
+       function onReturn() {
+           var redirectUrl = '@Url.Action(eAction.Index, eController.Admin)';
+        window.location.href = redirectUrl;
+    }
+
+</script>
